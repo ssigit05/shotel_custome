@@ -13,10 +13,9 @@
 
             <x-nav-item label="Dashboard" icon="fas fa-tachometer-alt" :link="route('dashboard')"/>
             <x-nav-item label="Pemesanan" icon="fas fa-cash-register" :link="route('pemesanan.index')"/>
-            
+            <x-nav-item label="Fasilitas Hotel" icon="fas fa-hotel" :link="route('fasilitas.index')"/>
+            <x-nav-item label="Kamar" icon="fas fa-bed" :link="route('kamar.index')"/>
             @can('role', 'admin')
-              <x-nav-item label="Fasilitas Hotel" icon="fas fa-hotel" :link="route('fasilitas.index')"/>
-              <x-nav-item label="Kamar" icon="fas fa-bed" :link="route('kamar.index')"/>
               <x-nav-item label="User Admin" icon="fas fa-users" :link="route('admin.index')"/>
             @endcan
             

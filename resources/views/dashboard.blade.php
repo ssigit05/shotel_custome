@@ -51,4 +51,5 @@
   @endcan
 </div>
 
+@include('dashboard/chart',['data_chart'=>$data_chart])
 @endsection

@@ -14,7 +14,10 @@ class PemesananFactory extends Factory
     public function definition()
     {
         $checkin = $this->faker->dateTimeBetween('-1 week', '+1 week');
+       
         $checkout = date('Y-m-d', strtotime('+ '.rand(1,3).' days', strtotime( $checkin->format('Y-m-d') ) ) );
+        
+        $create = date('Y-m-d H:i:s', strtotime('- '.rand(1,3).' days', strtotime( $checkin->format('Y-m-d') ) ) );
         return [
             'kamar_id'=>rand(1,3),
             'tgl_checkin'=>$checkin,
@@ -24,7 +27,9 @@ class PemesananFactory extends Factory
             'email_pemesan'=>$this->faker->freeEmail(),
             'no_hp'=>$this->faker->phoneNumber(),
             'nama_tamu'=>$this->faker->name(),
-            'status'=>'pesan'
+            'status'=>'pesan',
+            'created_at'=>$create,
+            'updated_at'=>$create
         ];
     }
 }

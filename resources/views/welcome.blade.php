@@ -2,19 +2,43 @@
 @section('content')
     <x-form-pesan/>
 
-    <h1 class="text-center my-4">About</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique consequat lectus id laoreet. 
-        Ut id scelerisque nunc, ut pretium mi. Nam vitae ex quis nibh porta sollicitudin sit amet sed diam. 
-        Cras venenatis justo lacus, non vestibulum purus ullamcorper ut. Donec nec porttitor nisi, ut condimentum lectus. 
-        Sed volutpat enim felis, quis vestibulum nulla semper quis. Praesent eget mollis mauris.</p>
+    <h1 class="text-center my-4">Fasilitas</h1>
+    
+    <div class="row fasilitas">
+        @foreach ($fasilitas as $item)
+        <div class="col-md-3">
+            <a class="card card-light" href="#">
+                <div class="card-header">
+                    {{ $item->nama_fasilitas_hotel}}
+                </div>
+                <div class="card-body p-1">
+                    <img src="{{$item->foto_fasilitas_hotel}}" class="img-fluid rounded" />
+                </div>
+                
+            </a>
+        </div>
+        @endforeach
+        
+    </div>
 
-    <p>Vivamus egestas, mi in commodo condimentum, erat lorem imperdiet urna, eget ultrices est sem id lorem. 
-        Aenean tincidunt, dui id efficitur aliquam, dolor magna efficitur mi, eu elementum metus purus at libero. 
-        Morbi elementum eleifend orci. Curabitur ultricies varius iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Quisque non tellus ac libero imperdiet finibus. Vivamus semper egestas porta.</p>
+    <h1 class="text-center my-4">Kamar</h1>
 
-        <p>Vivamus egestas, mi in commodo condimentum, erat lorem imperdiet urna, eget ultrices est sem id lorem. 
-            Aenean tincidunt, dui id efficitur aliquam, dolor magna efficitur mi, eu elementum metus purus at libero. 
-            Morbi elementum eleifend orci. Curabitur ultricies varius iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Quisque non tellus ac libero imperdiet finibus. Vivamus semper egestas porta.</p>
+    <div class="row kamar">
+        @foreach ($kamar as $item)
+        <div class="col-md-4">
+            <a class="card card-light" href="#">
+                <div class="card-header">
+                    {{ $item->nama_kamar }}
+                </div>
+                <div class="card-body p-1">
+                    <img src="{{ $item->foto_kamar}}" class="img-fluid rounded" />
+                </div>
+                <div class="card-footer">
+                    {{$item->harga_kamar}}
+                </div>
+            </a>
+        </div>
+        @endforeach
+    </div>
+    
 @endsection

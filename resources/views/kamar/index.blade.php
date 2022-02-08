@@ -4,12 +4,17 @@
 @endsection
 
 @section('content')
-<x-status/>
+@can('role', 'admin')
+    <x-status/>
+@endcan
+
     <div class="card shadow">
         <div class="card-header">
             <div class="row">
                 <div class="col">
-                    <x-btn-tambah :link="route('kamar.create')"/>
+                    @can('role', 'admin')
+                        <x-btn-tambah :link="route('kamar.create')"/>
+                    @endcan
                 </div>
                 <div class="col">
                     <x-search/>
@@ -38,13 +43,19 @@
                         <td>{{ $item->jum_kamar}}</td>
                         <td>Rp. {{ number_format($item->harga_kamar,0,',','.')}}</td>
                         <td>
-                            <a href="{{ route('kamar.fasilitas.index',['kamar'=>$item->id])}}"
-                                class="btn btn-xs btn-success mr-1">
-                                <i class="fas fa-tv"></i> Fasilitas
-                            </a>
-                            <x-btn-show :link="route('kamar.show',['kamar'=>$item->id])"/>
-                            <x-btn-edit :link="route('kamar.edit',['kamar'=>$item->id])"/>
-                            <x-btn-delete :link="route('kamar.destroy',['kamar'=>$item->id])" />
+                            @can('role', 'admin')
+                                <a href="{{ route('kamar.fasilitas.index',['kamar'=>$item->id])}}"
+                                    class="btn btn-xs btn-success mr-1">
+                                    <i class="fas fa-tv"></i> Fasilitas
+                                </a>
+                            @endcan
+                                <x-btn-show :link="route('kamar.show',['kamar'=>$item->id])"/>
+
+                            @can('role', 'admin')
+                                <x-btn-edit :link="route('kamar.edit',['kamar'=>$item->id])"/>
+                                <x-btn-delete :link="route('kamar.destroy',['kamar'=>$item->id])" />  
+                            @endcan
+                            
                         </td>
                     </tr>  
                     @endforeach
@@ -62,5 +73,8 @@
 
 @section('modal')
 <!-- Modal -->
-<x-modal-delete/>
+@can('role', 'admin')
+    <x-modal-delete/> 
+@endcan
+
 @endsection

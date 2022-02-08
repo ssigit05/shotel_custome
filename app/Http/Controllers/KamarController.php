@@ -9,6 +9,12 @@ use App\Helper\ImageUrl;
 
 class KamarController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('can:role,"admin"',[
+            'except'=>['index','show']
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

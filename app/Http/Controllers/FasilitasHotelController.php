@@ -8,6 +8,12 @@ use App\Helper\ImageUrl;
 
 class FasilitasHotelController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('can:role,"admin"',[
+            'except'=>['index','show'],
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -68,9 +74,10 @@ class FasilitasHotelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(FasilitasHotel $fasilita)
     {
-        return abort(404);
+        $fasilita->foto_fasilitas_hotel = ImageUrl::get('images/fasilitas/',$fasilita->foto_fasilitas_hotel);
+        return view('fasilitas_hotel.show',['item'=>$fasilita]); 
     }
 
     /**

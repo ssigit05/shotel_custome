@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::view('kamar','kamar')->name('kamar');
 
@@ -31,18 +29,22 @@ Route::group([
         Route::post('logout','LoginAdminController@logout')->name('admin.logout');
 
         Route::get('/','DashboardController@index')->name('dashboard');
+        Route::get('/chart','DashboardController@data_chart');
+
         Route::get('/akun', 'AdminController@akun')->name('admin.akun');
         Route::put('/akun', 'AdminController@updateAkun');
 
         Route::get('pemesanan','PemesananController@index')->name('pemesanan.index');
         Route::get('pemesanan/{pemesanan}','PemesananController@show')->name('pemesanan.show');
         Route::put('pemesanan/{pemesanan}','PemesananController@update')->name('pemesanan.update');
+
+        Route::resource('kamar', 'KamarController');
+        Route::resource('fasilitas','FasilitasHotelController');
         
         Route::group(['middleware' => ['can:role,"admin"']], function() {
-            Route::resource('fasilitas','FasilitasHotelController');
             Route::resource('kamar.fasilitas', 'FasilitasKamarController');
             Route::resource('admin', 'AdminController');
-            Route::resource('kamar', 'KamarController');
+            
         });
         
         

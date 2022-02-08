@@ -34,7 +34,28 @@ class DashboardController extends Controller
             'pemesanan'=>$pemesanan,
             'kamar'=>$kamar,
             'fasilitas'=>$fasilitas,
-            'admin'=>$admin
+            'admin'=>$admin,
+            'data_chart'=> $this->data_chart()
         ]);
+    }
+
+    public function data_chart()
+    {
+        $pemesanan = Pemesanan::select(
+            'created_at',
+            DB::raw('count(*) as jum_pemesanan')
+        )
+        // ->whereDate('created_at','>=','-1 month')
+        ->whereMonth('created_at',date('m'))
+        ->orderBy('created_at')
+        ->groupBy('created_at')
+        ->get();
+
+        $data = [];
+        foreach($pemesanan as $item){
+            $data['label'][] = date('d/m/Y', strtotime($item->created_at));
+            $data['data'][] = $item->jum_pemesanan;
+        }
+        return $data;
     }
 }

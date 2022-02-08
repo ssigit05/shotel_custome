@@ -4,12 +4,18 @@
 @endsection
 
 @section('content')
-<x-status/>
+@can('role', 'admin')
+   <x-status/> 
+@endcan
+
     <div class="card shadow">
         <div class="card-header">
             <div class="row">
                 <div class="col">
-                    <x-btn-tambah :link="route('fasilitas.create')"/>
+                    @can('role', 'admin')
+                        <x-btn-tambah :link="route('fasilitas.create')"/>
+                    @endcan
+                    
                 </div>
                 <div class="col">
                     <x-search/>
@@ -34,9 +40,12 @@
                         <td>{{ $no++}}</td>
                         <td>{{ ($item->nama_fasilitas_hotel)}}</td>
                         <td>
-                            {{-- <x-btn-show :link="route('kamar.show',['kamar'=>$item->id])"/> --}}
-                            <x-btn-edit :link="route('fasilitas.edit',['fasilita'=>$item->id])"/>
-                            <x-btn-delete :link="route('fasilitas.destroy',['fasilita'=>$item->id])" />
+                            <x-btn-show :link="route('fasilitas.show',['fasilita'=>$item->id])"/>
+                                @can('role', 'admin')
+                                    <x-btn-edit :link="route('fasilitas.edit',['fasilita'=>$item->id])"/>
+                                    <x-btn-delete :link="route('fasilitas.destroy',['fasilita'=>$item->id])" />
+                                 @endcan
+                            
                         </td>
                     </tr>  
                     @endforeach
@@ -54,5 +63,8 @@
 
 @section('modal')
 <!-- Modal -->
-<x-modal-delete/>
+@can('role', 'admin')
+    <x-modal-delete/>
+@endcan
+
 @endsection
