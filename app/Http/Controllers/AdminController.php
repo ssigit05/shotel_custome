@@ -22,7 +22,7 @@ class AdminController extends Controller
                  return $query->where('nama','like',"%{$search}%");
             })
             ->orderBy('id')
-            ->paginate(2);
+            ->paginate(25);
 
         return view('admin.index',['data'=>$data]);
     }

@@ -30,11 +30,16 @@ Route::group([
     Route::group(['middleware'=>'auth:admin'], function(){
         Route::post('logout','LoginAdminController@logout')->name('admin.logout');
 
-        Route::view('/','dashboard')->name('dashboard');
+        Route::get('/','DashboardController@index')->name('dashboard');
         Route::get('/akun', 'AdminController@akun')->name('admin.akun');
         Route::put('/akun', 'AdminController@updateAkun');
+
+        Route::get('pemesanan','PemesananController@index')->name('pemesanan.index');
+        Route::get('pemesanan/{pemesanan}','PemesananController@show')->name('pemesanan.show');
+        Route::put('pemesanan/{pemesanan}','PemesananController@update')->name('pemesanan.update');
         
         Route::group(['middleware' => ['can:role,"admin"']], function() {
+            Route::resource('fasilitas','FasilitasHotelController');
             Route::resource('kamar.fasilitas', 'FasilitasKamarController');
             Route::resource('admin', 'AdminController');
             Route::resource('kamar', 'KamarController');

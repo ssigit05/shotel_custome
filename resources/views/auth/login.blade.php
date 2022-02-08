@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ url('/')}}"><b>Ssgit</b>Hotel</a>
+    <a href="{{ url('/')}}"><b>S</b>Hotel</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

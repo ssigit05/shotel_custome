@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             KamarSeeder::class,
             FasilitasKamarSeeder::class,
+            FasilitasHotelSeeder::class,
+            PemesananSeeder::class,
         ]);
     }
 }

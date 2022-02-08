@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col">
-                    <a href="{{ route('kamar.index')}}" class="btn btn-danger"><i class="fas fa-arrow-circle-left"></i> Kamar</a>
+                    <a href="{{ route('kamar.index')}}" class="btn btn-danger"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
                     <x-btn-tambah :link="route('kamar.fasilitas.create',['kamar'=>$kamar->id])"/>
                 </div>
             </div>

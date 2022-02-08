@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kamar;
 use App\Models\FasilitasKamar;
+use App\Helper\ImageUrl;
 
 class KamarController extends Controller
 {
@@ -79,16 +80,8 @@ class KamarController extends Controller
     {
         $fasilita = FasilitasKamar::where('kamar_id',$kamar->id)->get();
 
-        if ($kamar->foto_kamar) {
-            $file = 'images/kamar/'.$kamar->foto_kamar;
-            if (file_exists($file)){
-                $kamar->foto_kamar = url($file);
-            }else{
-                $kamar->foto_kamar = url('images/no_image.jpg');
-            }
-        }else{
-            $kamar->foto_kamar = url('images/no_image.jpg');
-        }
+        $kamar->foto_kamar = ImageUrl::get('images/kamar/',$kamar->foto_kamar);
+
         return view('kamar.show',['item'=>$kamar,'fasilitas'=>$fasilita]);
     }
 

@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand h1" href="{{ route('home')}}">
             <img src="images/ssgit.png" width="30" height="30" class="d-inline-block align-top img-circle" alt="Logo">
-            Ssgit Hotel
+            SHotel
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
