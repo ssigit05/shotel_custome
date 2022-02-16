@@ -13,62 +13,64 @@
   <link rel="stylesheet" href="/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/scss/style.css">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="{{ url('/')}}"><b>S</b>Hotel</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Masuk untuk memulai sesi anda</p>
-
-      <form action="?" method="post">
-        <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid':'' }}" placeholder="Username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="{{ url('/')}}"><b>S</b>Hotel</a>
+      </div>
+      <!-- /.login-logo -->
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Masuk untuk memulai sesi anda</p>
+    
+          <form action="?" method="post">
+            <div class="input-group mb-3">
+              <input type="text" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid':'' }}" placeholder="Username">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+              @error('username')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-          </div>
-          @error('username')
-              <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid':'' }}" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+            <div class="input-group mb-3">
+              <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid':'' }}" placeholder="Password">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+              @error('password')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-          </div>
-          @error('password')
-              <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" name="remember"id="remember">
-              <label for="remember">
-                Ingatkan Saya
-              </label>
+            <div class="row">
+              <div class="col-8">
+                <div class="icheck-primary">
+                  <input type="checkbox" name="remember"id="remember">
+                  <label for="remember">
+                    Ingatkan Saya
+                  </label>
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                <button type="submit" class="btn btn-primary btn-block">
+                 <i class="fas fa-sign-in-alt"></i> Log In
+                </button>
+              </div>
+              <!-- /.col -->
             </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">
-             <i class="fas fa-sign-in-alt"></i> Log In
-            </button>
-          </div>
-          <!-- /.col -->
+          </form>
         </div>
-      </form>
+        <!-- /.login-card-body -->
+      </div>
     </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
+
 <!-- /.login-box -->
 
 <!-- jQuery -->

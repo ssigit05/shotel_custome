@@ -24,6 +24,6 @@
         </div>
     </div>
     <div class="col-md-1">
-        <button type="submit" class="btn btn-block btn-info">Pesan</button>
+        <button type="submit" class="btn btn-block btn-sgit">Pesan</button>
     </div>
 </form>

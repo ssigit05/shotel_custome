@@ -7,7 +7,7 @@
     <div class="row fasilitas">
         @foreach ($fasilitas as $item)
         <div class="col-md-3">
-            <a class="card card-light" href="#">
+            <a class="card card-light" href="{{ route('guest.fasilitas.show',['fasilitas'=>$item->id])}}">
                 <div class="card-header">
                     {{ $item->nama_fasilitas_hotel}}
                 </div>
@@ -26,7 +26,7 @@
     <div class="row kamar">
         @foreach ($kamar as $item)
         <div class="col-md-4">
-            <a class="card card-light" href="#">
+            <a class="card card-light" href="{{ route('guest.kamar.show',['kamar'=>$item->id])}}">
                 <div class="card-header">
                     {{ $item->nama_kamar }}
                 </div>
@@ -34,7 +34,7 @@
                     <img src="{{ $item->foto_kamar}}" class="img-fluid rounded" />
                 </div>
                 <div class="card-footer">
-                    {{$item->harga_kamar}}
+                    {{$item->harga_kamar}} <small>/ Malam</small>
                 </div>
             </a>
         </div>

@@ -14,8 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('fasilitas','GuestFasilitasController@index')->name('guest.fasilitas.index');
+Route::get('/fasilitas/{fasilitas}','GuestFasilitasController@show')->name('guest.fasilitas.show');
 
-Route::view('kamar','kamar')->name('kamar');
+Route::get('kamar','GuestKamarController@index')->name('guest.kamar.index');
+Route::get('kamar/{kamar}','GuestKamarController@show')->name('guest.kamar.show');
+
+Route::get('reservasi', 'GuestReservasiController@create')->name('guest.reservasi.create');
+Route::post('reservasi', 'GuestReservasiController@store');
+Route::get('reservasi/{pemesanan}', 'GuestReservasiController@show')->name('guest.reservasi.show');
+
 
 
 Route::group([

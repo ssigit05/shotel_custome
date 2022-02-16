@@ -13,13 +13,16 @@
   <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
 
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/scss/style.css">
 </head>
 <body class="hold-transition">
 <!-- As a link -->
 @include('layouts.inc_tamu.navbar')
 
-<div class="container-fluid p-0 cs">
-    <img src="images/banner.jpg" class="img img-fluid w-100">
+<div class="text-center banner-hotel">
+    <h1>Selamat Datang <br> Di HotelSsgit</h1>
+    <p>Aman Nyaman Dan Bersahabat</p>
+    {{--  <img src="{{ url('images/banner.jpg')}}" class="img img-fluid w-100">  --}}
 </div>
 
 <div class="container content">
@@ -27,8 +30,8 @@
 </div>
 
 <footer class="footer">
-    <div class="container">
-        <span class="text-muted"><strong>Copyright &copy; 2022 Aldhi Xar.</strong> All rights reserved.</span>
+    <div class="container ">
+        <span class="row border-top justify-content-center align-items-center"><strong>Copyright &copy; 2022 Ssgit.</strong> All rights reserved.</span>
     </div>
 </footer>
 

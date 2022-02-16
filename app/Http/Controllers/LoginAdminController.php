@@ -14,7 +14,7 @@ class LoginAdminController extends Controller
 
     public function formLogin()
     {
-        return view('auth.login');
+        return view('auth.login-custome');
     }
 
     public function login(Request $request)

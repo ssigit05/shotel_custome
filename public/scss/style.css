@@ -1,4 +1,41 @@
 .sidebar-dark-primary {
   background-color: #082032 !important;
 }
+
+body .bg-info {
+  background-color: #495371 !important;
+}
+
+body .btn-sgit {
+  background-color: #495371 !important;
+  color: white;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#6a11cb), to(#2575fc));
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
 /*# sourceMappingURL=style.css.map */
+.banner-hotel{
+  background-image: url(../images/banner.jpg);
+  background-size: cover;
+  padding: 200px 0px 195px;
+}
+.banner-hotel h1{
+  margin-top: -70px;
+  font-family: 'Playfair Display',
+ serif;
+  font-weight: bold;
+  font-size: 50px;
+}
+.banner-hotel h1 , .banner-hotel p{
+  color: white;
+}
+.banner-hotel p{
+  font-size: 22px;
+  font-family: 'Assistant', sans-serif;
+}
