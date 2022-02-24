@@ -1,7 +1,7 @@
 <div class="card card-info">
     <div class="card-header">
         Grafik Pemesanan Per-Bulan
-    </div>
+    </div>  
     <div class="card-body">
         <canvas id="myChart"></canvas>
     </div>

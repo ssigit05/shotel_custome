@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kamar;
 use App\Models\Pemesanan;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class GuestReservasiController extends Controller
 {
@@ -49,5 +50,24 @@ class GuestReservasiController extends Controller
     public function show(Pemesanan $pemesanan)
     {
         return view('reservasi-show',['item'=>$pemesanan]);
+    }
+
+    public function invoice(Pemesanan $pemesanan)
+    {
+        $pemesanan->nama_pemesan = ucwords($pemesanan->nama_pemesan);
+        $pemesanan->nama_tamu = ucwords($pemesanan->nama_tamu);
+        $pemesanan->tgl_checkin = date('l, d M Y', strtotime($pemesanan->tgl_checkin));
+        $pemesanan->tgl_checkout = date('l, d M Y', strtotime($pemesanan->tgl_checkout));
+
+        $kamar = Kamar::find($pemesanan->kamar_id);
+
+        $total = $kamar->harga_kamar * $pemesanan->jum_kamar_dipesan;
+        $pemesanan->total = number_format($total, 0, '.',',');
+        $kamar->nama_kamar = ucwords($kamar->nama_kamar);
+        $kamar->harga_kamar = number_format($kamar->harga_kamar, 0, '.',',');
+
+        
+        $pdf = PDF::loadView('reservasi-invoice',['item'=>$pemesanan,'kamar'=>$kamar]);
+        return $pdf->stream();
     }
 }

@@ -9,8 +9,12 @@
                 <h1 class="display-4">Berhasil!</h1>
                 <p class="lead">Terimakasih {{ $item->nama_tamu}} ,telah melakukan reservasi dihotel kami.</p>
                 <hr class="my-4">
-                <p>Untuk selanjutnya silahkan cetak atau download Invoice Booking.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Invoice Booking</a>
+                <p>Untuk selanjutnya silahkan cetak atau download Booking Invoice.</p>
+                <a href="{{ route('guest.reservasi.invoice',['pemesanan'=>$item->id])}}"
+                    class="btn btn-primary btn-lg"
+                    target="__blank">
+                    <i class="fas fa-print"></i> Cetak Booking Invoice
+                </a>
               </div>
 
         </div>

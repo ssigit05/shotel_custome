@@ -108,7 +108,7 @@ class FasilitasHotelController extends Controller
         ]);
 
         if ( $fasilita->foto_fasilitas_hotel && $request->foto) {
-            $file = 'images/fasilitas/'.$kamar->foto_fasilitas_hotel;
+            $file = 'images/fasilitas/'.$fasilita->foto_fasilitas_hotel;
             if ( file_exists($file)) {
                 unlink($file);
             }
