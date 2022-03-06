@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-info collor shadow">
+<nav class=" fixed-top navbar navbar-expand-md navbar-dark bg-info collor shadow">
     <div class="container">
         <a class="navbar-brand h1" href="{{ route('home')}}">
             <img src="{{ url('images/ssgit.png')}}" width="30" height="30" class="d-inline-block align-top img-circle" alt="Logo">

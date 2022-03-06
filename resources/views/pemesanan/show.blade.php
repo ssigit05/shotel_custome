@@ -22,7 +22,7 @@
                     <p>
                         <form action="{{ route('pemesanan.update',['pemesanan'=>$pemesanan->id])}}" method="post" class="form-inline">
                             @method('put')
-                            <span class="mr-2">Ubah Status : </spanl>
+                            <span class="mr-2">Ubah Status : </span>
                             
                             <x-select name="status" :value="$pemesanan->value_status" :data-option="$option"/>
                                 <button type="submit" class="btn btn-success ml-2">Update</button>

@@ -15,6 +15,9 @@
 nav .navbar-nav .nav-item .white{
   color: white;
 }
+.card-primary:not(.card-outline) .card-header{
+  background-color: #B8405E !important ;
+}
 .btn-primary{
   background-color: #2EB086 !important;
   border: #2EB086 !important;

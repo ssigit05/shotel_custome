@@ -51,7 +51,7 @@ class DashboardController extends Controller
         ->groupBy('created_at')
         ->get();
 
-        $data = [];
+        $data = ['label'=>[],'data'=>[]];
         foreach($pemesanan as $item){
             $data['label'][] = date('d/m/Y', strtotime($item->created_at));
             $data['data'][] = $item->jum_pemesanan;
